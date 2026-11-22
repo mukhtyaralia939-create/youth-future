@@ -4,146 +4,191 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#101b38">
 <title>Youth Future</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
- font-family:Arial,sans-serif;
- background:#f2f5fc;color:#17213a;
-}
-header{
- background:linear-gradient(135deg,#101b38,#254c91);
- color:white;padding:25px 18px 30px;
- border-radius:0 0 25px 25px;
-}
-.brand{font-size:25px;font-weight:bold;letter-spacing:1px}
-.tag{color:#c5d9ff;font-size:13px;margin-top:7px}
-.welcome{
- margin-top:25px;background:#ffffff18;
- padding:18px;border-radius:15px;
-}
-.welcome h2{font-size:21px;margin-bottom:9px}
-.welcome p{font-size:14px;color:#dce7ff;line-height:1.6}
-main{padding:20px 15px}
-.section-title{font-size:19px;margin-bottom:15px}
-.grid{
- display:grid;grid-template-columns:1fr 1fr;gap:13px;
-}
-.card{
- background:white;border-radius:15px;padding:17px 12px;
- min-height:125px;box-shadow:0 3px 12px #17213a10;
- border:1px solid #e8edf6;
-}
-.card .emoji{font-size:27px;margin-bottom:12px}
-.card h3{font-size:15px;margin-bottom:7px}
-.card p{font-size:12px;color:#64718a;line-height:1.5}
-.card:active{transform:scale(.97)}
-.lesson{
- margin-top:24px;background:#e5edff;
- padding:18px;border-radius:15px;
-}
-.lesson h3{color:#183c79;margin-bottom:9px}
-.lesson p{font-size:14px;line-height:1.6}
-.lesson button{
- margin-top:13px;padding:11px 18px;
- border:0;border-radius:9px;
- background:#214e9b;color:white;font-weight:bold;
-}
-footer{
- text-align:center;padding:25px 12px;
- color:#64718a;font-size:12px;line-height:1.8;
-}
-nav{
- position:sticky;bottom:0;background:white;
- display:flex;justify-content:space-around;
- padding:13px 5px;border-top:1px solid #e6eaf2;
-}
-nav a{text-decoration:none;color:#244a88;font-size:12px}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f1f4fc;color:#17213a}
+header{background:linear-gradient(135deg,#101b38,#254c91);color:white;padding:25px 18px 30px;border-radius:0 0 25px 25px}
+.brand{font-size:27px;font-weight:bold}
+header p{color:#dce7ff}
+main{padding:20px 15px 90px}
+h2{font-size:21px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.card,.lesson{background:white;border-radius:17px;padding:17px 13px;box-shadow:0 3px 12px #17213a12;margin-bottom:12px}
+.card{cursor:pointer;min-height:125px}
+.emoji{font-size:28px}
+.card h3{font-size:16px}
+.card p,.lesson p{color:#64718a;font-size:13px;line-height:1.6}
+button{border:0;border-radius:10px;padding:12px;background:#214e9b;color:white;font-size:14px;cursor:pointer}
+button:active{opacity:.8}
+.languages{display:flex;gap:8px;margin:18px 0}
+.languages button{flex:1;background:#dce5f5;color:#17213a}
+.languages button.active{background:#214e9b;color:white}
+.lesson{margin-top:15px}
+.lesson h3{color:#214e9b}
+.action{width:100%;margin-top:10px}
+nav{position:fixed;bottom:0;background:white;width:100%;display:flex;justify-content:space-around;padding:15px 3px;box-shadow:0 -3px 12px #0001}
+nav button{background:white;color:#214e9b;padding:7px;font-size:12px}
+.hidden{display:none}
+footer{text-align:center;color:#64718a;font-size:12px;padding:15px}
 </style>
 </head>
 <body>
 
 <header>
- <div class="brand">🚀 YOUTH FUTURE</div>
- <div class="tag">Learn Today. Build Tomorrow.</div>
-
- <div class="welcome">
-  <h2>Welcome to Your Future!</h2>
-  <p>Learn new skills, explore technology,
-  discover opportunities and build your future.</p>
- </div>
+<div class="brand">🚀 YOUTH FUTURE</div>
+<p>Learn Today. Build Tomorrow.</p>
+<div class="card" style="background:#ffffff20;color:white">
+<h2 id="welcome">Welcome to Your Future!</h2>
+<p id="intro" style="color:white">Learn skills, explore AI and build your future.</p>
+</div>
 </header>
 
 <main>
- <h2 class="section-title">Explore Your Future</h2>
+<section id="home">
+<h2>Explore Your Future</h2>
+<div class="grid">
+<div class="card" onclick="show('ai')"><div class="emoji">🤖</div><h3>AI Learning</h3><p>Learn Artificial Intelligence.</p></div>
+<div class="card" onclick="show('learn')"><div class="emoji">💻</div><h3>Digital Skills</h3><p>Learn typing, design and technology.</p></div>
+<div class="card" onclick="show('career')"><div class="emoji">💼</div><h3>Online Work</h3><p>Explore freelancing and online work.</p></div>
+<div class="card" onclick="show('career')"><div class="emoji">🎯</div><h3>Career Center</h3><p>Jobs, scholarships and guidance.</p></div>
+<div class="card" onclick="show('learn')"><div class="emoji">✍️</div><h3>Creator Studio</h3><p>Create poetry and digital content.</p></div>
+<div class="card" onclick="show('profile')"><div class="emoji">🌍</div><h3>Youth Community</h3><p>Learn and grow together.</p></div>
+</div>
+</section>
 
- <div class="grid">
-  <div class="card" onclick="showInfo('AI Learning')">
-   <div class="emoji">🤖</div>
-   <h3>AI Learning</h3>
-   <p>Learn Artificial Intelligence and modern AI tools.</p>
-  </div>
+<section id="ai" class="hidden">
+<h2>🤖 AI Learning Academy</h2>
+<p>Learn Artificial Intelligence step by step.</p>
+<div class="languages">
+<button class="active" onclick="language('sd',this)">سنڌي</button>
+<button onclick="language('ur',this)">اردو</button>
+<button onclick="language('en',this)">English</button>
+</div>
+<div id="lessonList"></div>
+<div class="lesson">
+<h3 id="quizTitle">📝 Knowledge Test</h3>
+<p id="question">What does AI stand for?</p>
+<div id="answers"></div>
+<p id="result"></p>
+</div>
+</section>
 
-  <div class="card" onclick="showInfo('Digital Skills')">
-   <div class="emoji">💻</div>
-   <h3>Digital Skills</h3>
-   <p>Learn typing, design and digital technology.</p>
-  </div>
+<section id="learn" class="hidden">
+<h2>💻 Digital Skills</h2>
+<div class="lesson"><h3>Computer Basics</h3><p>Learn the basic use of computers and mobile technology.</p></div>
+<div class="lesson"><h3>Typing Skills</h3><p>Practice English, Urdu and Sindhi typing.</p></div>
+<div class="lesson"><h3>Graphic Design</h3><p>Learn basic digital design skills.</p></div>
+</section>
 
-  <div class="card" onclick="showInfo('Online Work')">
-   <div class="emoji">💼</div>
-   <h3>Online Work</h3>
-   <p>Explore freelancing and online work opportunities.</p>
-  </div>
+<section id="career" class="hidden">
+<h2>💼 Career Center</h2>
+<div class="lesson"><h3>Freelancing</h3><p>Learn how to offer your skills online.</p></div>
+<div class="lesson"><h3>Scholarships</h3><p>Explore education and scholarship opportunities.</p></div>
+<div class="lesson"><h3>Career Planning</h3><p>Discover skills that can help your future.</p></div>
+</section>
 
-  <div class="card" onclick="showInfo('Career Center')">
-   <div class="emoji">🎯</div>
-   <h3>Career Center</h3>
-   <p>Discover jobs, scholarships and career guidance.</p>
-  </div>
-
-  <div class="card" onclick="showInfo('Creator Studio')">
-   <div class="emoji">✍️</div>
-   <h3>Creator Studio</h3>
-   <p>Create poetry, books and digital content.</p>
-  </div>
-
-  <div class="card" onclick="showInfo('Youth Community')">
-   <div class="emoji">🌍</div>
-   <h3>Youth Community</h3>
-   <p>Connect, learn and grow with other young people.</p>
-  </div>
- </div>
-
- <div class="lesson">
-  <h3>📚 Start Your Learning Journey</h3>
-  <p>Discover the world of Artificial Intelligence.
-  Your future starts with learning today!</p>
-  <button onclick="showInfo('AI Introduction')">
-   Start Learning →
-  </button>
- </div>
+<section id="profile" class="hidden">
+<h2>👤 Student Profile</h2>
+<div class="lesson"><h3>Welcome, Student!</h3><p>Your learning journey starts here.</p></div>
+</section>
 </main>
 
-<footer>
- <strong>YOUTH FUTURE</strong><br>
- Learn Today. Build Tomorrow.<br>
- © 2026 Youth Future. All rights reserved.
-</footer>
-
 <nav>
- <a href="#">🏠 Home</a>
- <a href="#main">📚 Learn</a>
- <a href="#main">💼 Career</a>
- <a href="#main">👤 Profile</a>
+<button onclick="show('home')">🏠 Home</button>
+<button onclick="show('ai')">📚 Learn</button>
+<button onclick="show('career')">💼 Career</button>
+<button onclick="show('profile')">👤 Profile</button>
 </nav>
 
 <script>
-function showInfo(name){
- alert(name + " section is coming soon!");
-}
-</script>
+let lang='sd';
 
+const data={
+sd:{
+welcome:'پنهنجي مستقبل ۾ ڀليڪار!',
+intro:'نئين ٽيڪنالاجي ۽ AI سکيو، پنهنجو مستقبل ٺاهيو.',
+lessons:[
+['AI ڇا آهي؟','AI يعني مصنوعي ذهانت. اها ٽيڪنالاجي ڪمپيوٽرن کي سکڻ، سمجهڻ ۽ مسئلا حل ڪرڻ ۾ مدد ڏئي ٿي.'],
+['ChatGPT ڇا آهي؟','ChatGPT هڪ AI اوزار آهي، جيڪو سوالن جا جواب، لکڻ ۽ سکڻ ۾ مدد ڪري ٿو.'],
+['AI سان تصويرون','AI جي مدد سان توهان لکيل لفظن مان نيون تصويرون ٺاهي سگهو ٿا.'],
+['AI ۽ وڊيو','AI جا ڪجهه اوزار وڊيو ٺاهڻ ۽ ايڊيٽنگ ۾ مدد ڪن ٿا.']
+],
+quiz:'AI جو مطلب ڇا آهي؟',
+answers:['مصنوعي ذهانت','موبائل فون','انٽرنيٽ'],
+correct:0,
+right:'شاباس! توهان جو جواب صحيح آهي.',
+wrong:'ٻيهر ڪوشش ڪريو.'
+},
+ur:{
+welcome:'اپنے مستقبل میں خوش آمدید!',
+intro:'نئی ٹیکنالوجی اور AI سیکھیں اور اپنا مستقبل بنائیں۔',
+lessons:[
+['AI کیا ہے؟','AI یعنی مصنوعی ذہانت۔ یہ کمپیوٹر کو سیکھنے اور مسائل حل کرنے میں مدد دیتی ہے۔'],
+['ChatGPT کیا ہے؟','ChatGPT ایک AI ٹول ہے جو سوالات کے جواب اور لکھنے میں مدد کرتا ہے۔'],
+['AI سے تصاویر','AI کی مدد سے تحریری الفاظ سے نئی تصاویر بنائی جا سکتی ہیں۔'],
+['AI اور ویڈیو','AI کے کچھ ٹولز ویڈیو بنانے اور ایڈیٹنگ میں مدد کرتے ہیں۔']
+],
+quiz:'AI کا مطلب کیا ہے؟',
+answers:['مصنوعی ذہانت','موبائل فون','انٹرنیٹ'],
+correct:0,
+right:'شاباش! آپ کا جواب درست ہے۔',
+wrong:'دوبارہ کوشش کریں۔'
+},
+en:{
+welcome:'Welcome to Your Future!',
+intro:'Learn new technology and AI to build your future.',
+lessons:[
+['What is AI?','AI means Artificial Intelligence. It helps computers learn and solve problems.'],
+['What is ChatGPT?','ChatGPT is an AI tool that helps answer questions and write content.'],
+['AI Image Creation','AI tools can create new images from written descriptions.'],
+['AI and Video','Some AI tools help create and edit videos.']
+],
+quiz:'What does AI stand for?',
+answers:['Artificial Intelligence','Mobile Phone','Internet'],
+correct:0,
+right:'Excellent! Your answer is correct.',
+wrong:'Try again.'
+}
+};
+
+function language(l,btn){
+lang=l;
+document.querySelectorAll('.languages button').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+render();
+}
+
+function render(){
+let d=data[lang];
+document.getElementById('welcome').innerText=d.welcome;
+document.getElementById('intro').innerText=d.intro;
+document.getElementById('lessonList').innerHTML=d.lessons.map((x,i)=>
+`<div class="lesson"><h3>${i+1}. ${x[0]}</h3><p>${x[1]}</p></div>`
+).join('');
+document.getElementById('quizTitle').innerText=lang==='sd'?'📝 سکيا جو امتحان':lang==='ur'?'📝 سیکھنے کا امتحان':'📝 Knowledge Test';
+document.getElementById('question').innerText=d.quiz;
+document.getElementById('result').innerText='';
+document.getElementById('answers').innerHTML=d.answers.map((a,i)=>
+`<button class="action" onclick="answer(${i})">${a}</button>`
+).join('');
+}
+
+function answer(i){
+let d=data[lang];
+document.getElementById('result').innerText=i===d.correct?d.right:d.wrong;
+}
+
+function show(id){
+['home','ai','learn','career','profile'].forEach(x=>
+document.getElementById(x).classList.add('hidden'));
+document.getElementById(id).classList.remove('hidden');
+if(id==='ai')render();
+window.scrollTo(0,0);
+}
+
+render();
+</script>
+<footer>Youth Future | Learn Today. Build Tomorrow.</footer>
 </body>
 </html>
